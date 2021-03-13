@@ -5,28 +5,28 @@ import {
     writeMessageActionCreator
 } from "../../../../Redux/messages-reducer";
 import Contact from "./Contact";
+import ContextStore from "../../../../ContextStore";
 
 
-const ContactContainer = (props) => {
-let state=props.store.getState();
-
-
-    let writeMessage = () => {
-        props.store.dispatch(writeMessageActionCreator())
-    };
-
-
-    let onChangeMessageClick = (tekst) => {
-        let action = updateNewsMessageTextActionCreator(tekst);
-        props.store.dispatch(action);
-    };
-
-
-    return (
-        <Contact updateNewTextMessage={onChangeMessageClick}
-        writeMessage={writeMessage}
-        newTextMessage={state.MessagesPage.newTextMessage}
-                 MessagesPage={state.MessagesPage}/>
-    );
+const ContactContainer = () => {
+    return (<ContextStore.Consumer>
+            {(store) => {
+                let state = store.getState();
+                let writeMessage = () => {
+                    store.dispatch(writeMessageActionCreator())
+                };
+                let onChangeMessageClick = (tekst) => {
+                    let action = updateNewsMessageTextActionCreator(tekst);
+                    store.dispatch(action);
+                };
+                return <Contact updateNewTextMessage={onChangeMessageClick}
+                                writeMessage={writeMessage}
+                                newTextMessage={state.MessagesPage.newTextMessage}
+                                MessagesPage={state.MessagesPage}/>
+            }
+            }
+            }
+        </ContextStore.Consumer>
+    )
 }
 export default ContactContainer;

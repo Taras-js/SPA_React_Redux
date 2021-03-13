@@ -1,13 +1,10 @@
 import React, {} from 'react';
 import ContactContainer from "./Contacte/ContactСontainer";
 
-
-const Contacts = (props) => {
+const Contacts = () => {
 
     return (
-        <ContactContainer
-            store={props.store}
-            dispatch={props.dispatch}/>
+        <ContactContainer/>
     );
 }
 export default Contacts;

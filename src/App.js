@@ -5,14 +5,12 @@ import Toolbar from "./Components/Toolbar/Toolbar";
 import Messagebox from "./Components/Messagebox/Messagebox";
 
 
-const App = (props) => {
+const App = () => {
     return (
         <div className='wrapper'>
             <Header/>
             <Toolbar/>
-            <Messagebox store={props.store}
-                        dispatch={props.dispatch}
-            />
+            <Messagebox />
         </div>
     );
 }
