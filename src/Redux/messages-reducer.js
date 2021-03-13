@@ -18,7 +18,7 @@ let initialState = {
         {id: 6, letter: 'I am Programmer'}
 
     ],
-    newTextMessage: 'create messages'
+    newTextMessage: 'Еще, еще, быстрее'
 };
 let messagesReducer = (state = initialState, action) => {
     switch (action.type) {

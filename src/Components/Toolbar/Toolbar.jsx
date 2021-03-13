@@ -10,6 +10,7 @@ const Toolbar = () => {
                 <div><NavLink className={s.item} to="/profile"> Profile </NavLink></div>
                 <div><NavLink className={s.item} to="/message"> Messages </NavLink></div>
                 <div><NavLink className={s.item} to="/contacts"> Contacts </NavLink></div>
+                <div><NavLink className={s.item} to="/users"> Users </NavLink></div>
                 <div><NavLink className={s.item} to="/friends"> Friends </NavLink></div>
                 <div><NavLink className={s.item} to="/relatives"> Relatives </NavLink></div>
                 <div><NavLink className={s.item} to="/fotos"> Fotos </NavLink></div>
