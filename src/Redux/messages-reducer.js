@@ -22,19 +22,25 @@ let initialState = {
 };
 let messagesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_ITEM_MESSAGE:
+        case ADD_ITEM_MESSAGE: {
             let newMessage = {
                 id: 7,
                 letter: state.newTextMessage
             };
-            state.letters.push(newMessage);
-            state.newTextMessage = ' ';
-            return state;
-        case UPDATE_NEWS_MESSAGE_TEXT:
-            state.newTextMessage = action.newTextText;
-            return state;
+            let copyState = {...state};
+            copyState.letters = [...state.letters];
+            copyState.letters.push(newMessage);
+            copyState.newTextMessage = ' ';
+            return copyState;
+        }
+        case UPDATE_NEWS_MESSAGE_TEXT: {
+            let copyState = {...state};
+            copyState.newTextMessage = action.newTextText;
+            return copyState;
+        }
         default:
             return state;
+
     }
 }
 

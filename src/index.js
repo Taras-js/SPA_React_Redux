@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import {Provider} from "react-redux";
 
 
-export let rerenderAll = (state) => {
+
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>
@@ -17,11 +17,6 @@ export let rerenderAll = (state) => {
         </ BrowserRouter>,
         document.getElementById('root')
     );
-}
-rerenderAll(store.getState());
-store.subscribe(() => {
-    let state = store.getState();
-    rerenderAll(state);
-});
+
 
 reportWebVitals();

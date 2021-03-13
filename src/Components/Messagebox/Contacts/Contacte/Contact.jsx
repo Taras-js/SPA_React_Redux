@@ -37,8 +37,8 @@ const Contact = (props) => {
     };
     let addNewMessage = React.createRef();
     let ChangeMessageClick = () => {
-        let tekst = addNewMessage.current.value;
-        props.updateNewTextMessage(tekst);
+        let text = addNewMessage.current.value;
+        props.updateNewTextMessage(text);
     };
 
 

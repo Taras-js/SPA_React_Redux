@@ -21,17 +21,22 @@ let initialState = {
 };
 let personalReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_ITEM_POST:
+        case ADD_ITEM_POST: {
             let newPost = {
                 id: 7,
                 post: state.newTextPost
             };
-            state.posts.push(newPost);
-            state.newTextPost = ' ';
-            return state;
-        case UPDATE_NEWS_POST_TEXT:
-            state.newTextPost = action.newText;
-            return state;
+            let copyState = {...state};
+            copyState.posts = [...state.posts];
+            copyState.posts.push(newPost);
+            copyState.newTextPost = ' ';
+            return copyState;
+        }
+        case UPDATE_NEWS_POST_TEXT: {
+            let copyState = {...state};
+            copyState.newTextPost = action.newText;
+            return copyState;
+        }
         default:
             return state;
     }

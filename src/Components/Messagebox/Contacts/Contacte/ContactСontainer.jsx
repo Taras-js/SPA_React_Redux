@@ -6,6 +6,7 @@ import {
 import Contact from "./Contact";
 import {connect} from "react-redux";
 
+
 let mapStateToProps = (state) => {
     return {
         newTextMessage: state.MessagesPage.newTextMessage,
@@ -14,11 +15,13 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewTextMessage: (tekst) => {
-            let action = updateNewsMessageTextActionCreator(tekst);
+        updateNewTextMessage: (text) => {
+            let action = updateNewsMessageTextActionCreator(text);
             dispatch(action);
         },
-        writeMessage: dispatch(writeMessageActionCreator())
+        writeMessage: (text) => {
+            dispatch(writeMessageActionCreator())
+        }
     }
 }
 const ContactContainer = connect (mapStateToProps, mapDispatchToProps)(Contact)
