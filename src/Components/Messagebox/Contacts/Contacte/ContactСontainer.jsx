@@ -15,13 +15,14 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
+        writeMessage: () => {
+            dispatch(writeMessageActionCreator())
+        },
         updateNewTextMessage: (text) => {
             let action = updateNewsMessageTextActionCreator(text);
             dispatch(action);
-        },
-        writeMessage: (text) => {
-            dispatch(writeMessageActionCreator())
         }
+
     }
 }
 const ContactContainer = connect (mapStateToProps, mapDispatchToProps)(Contact)

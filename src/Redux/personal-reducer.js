@@ -17,26 +17,20 @@ let initialState = {
         {id: 5, post: 'Hip-hop'},
         {id: 6, post: 'I am Programmer'}
     ],
-    newTextPost: 'Taras Vacilievich'
+    newTextPost: 'Учись Быстрее'
 };
 let personalReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_ITEM_POST: {
-            let newPost = {
-                id: 7,
-                post: state.newTextPost
-            };
-            let copyState = {...state};
-            copyState.posts = [...state.posts];
-            copyState.posts.push(newPost);
-            copyState.newTextPost = ' ';
-            return copyState;
-        }
-        case UPDATE_NEWS_POST_TEXT: {
-            let copyState = {...state};
-            copyState.newTextPost = action.newText;
-            return copyState;
-        }
+        case ADD_ITEM_POST:
+            return {
+
+                ...state,
+                posts: [...state.posts, {id: 7, post: state.newTextPost}],
+                newTextPost: ' '
+
+            }
+        case UPDATE_NEWS_POST_TEXT:
+            return {...state, newTextPost: action.newText}
         default:
             return state;
     }
