@@ -1,0 +1,41 @@
+.header {
+    grid-area: h;
+    background-color: bisque;
+    margin: 3px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
+    justify-items: self-start;
+
+}
+.header img{
+    height: 90px;
+}
+.img {
+    height: 90px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.title {
+    color: black;
+
+}
+
+.registrationForm {
+
+
+}
+
+.titleRegistrationForm {
+    margin-top: 0;
+    height: 5px;
+    color: #eea67b;
+}
+
+/*.input {*/
+/*    background-color: burlywood;*/
+
+
+/*}*/

@@ -1,0 +1,20 @@
+.contact {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns:  1fr  1fr 1fr;
+    justify-items: stretch;
+}
+
+.contact img {
+    height: 50px;
+
+}
+
+.name {
+    margin: 30px;
+    align-content: space-around;
+}
+
+.letter {
+    margin: 30px;
+}

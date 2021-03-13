@@ -1,0 +1,18 @@
+.toolsbox {
+    grid-area: t;
+    background-color: darkgreen;
+    border-radius: 10px;
+    margin-left: 3px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-template-rows: auto;
+
+
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+
+}
