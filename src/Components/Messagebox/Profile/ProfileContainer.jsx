@@ -1,28 +1,26 @@
-import React, {} from 'react';
+// import React, {} from 'react';
 import {updateNewsPostTextActionCreator, writePostActionCreator} from "../../../Redux/personal-reducer";
 import Profile from "./Profile";
-import ContextStore from "../../../ContextStore";
+import {connect} from "react-redux";
 
-const ProfileContainer = () => {
-    return (
-        <ContextStore.Consumer>
-            {
-                (store) => {
-                    let changeClick = (text) => {
-                        let action = updateNewsPostTextActionCreator(text);
-                        store.dispatch(action);
-                    };
-                    let state = store.getState();
-                    let writePost = () => {
-                        store.dispatch(writePostActionCreator());
-                    };
-                    return <Profile writePost={writePost} changeClick={changeClick}
-                                    newTextMessage={state.PersonalPage.newTextMessage}
-                                    newTextPost={state.PersonalPage.newTextPost}
-                                    PersonalPage={state.PersonalPage}/>
-                }
-            }
-        </ ContextStore.Consumer>
-    );
+
+let mapStateToProps = (state) => {
+    return {
+        PersonalPage: state.PersonalPage,
+        newTextMessage: state.PersonalPage.newTextMessage,
+        newTextPost: state.PersonalPage.newTextPost
+    }
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        writePost: () => {
+            dispatch(writePostActionCreator());
+        },
+        changeClick: (text) => {
+            let action = updateNewsPostTextActionCreator(text);
+            dispatch(action);
+        }
+    }
+}
+const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile)
 export default ProfileContainer;

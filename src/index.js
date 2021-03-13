@@ -5,15 +5,15 @@ import store from './Redux/store-redax'
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import ContextStore from "./ContextStore";
+import {Provider} from "react-redux";
 
 
 export let rerenderAll = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <ContextStore.Provider value={store}>
+            <Provider store={store}>
                 <App/>
-            </ ContextStore.Provider>
+            </ Provider>
         </ BrowserRouter>,
         document.getElementById('root')
     );

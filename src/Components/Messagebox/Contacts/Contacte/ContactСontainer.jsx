@@ -1,32 +1,25 @@
-import React, {} from 'react';
-
+// import React, {} from 'react';
 import {
     updateNewsMessageTextActionCreator,
     writeMessageActionCreator
 } from "../../../../Redux/messages-reducer";
 import Contact from "./Contact";
-import ContextStore from "../../../../ContextStore";
+import {connect} from "react-redux";
 
-
-const ContactContainer = () => {
-    return (<ContextStore.Consumer>
-            {(store) => {
-                let state = store.getState();
-                let writeMessage = () => {
-                    store.dispatch(writeMessageActionCreator())
-                };
-                let onChangeMessageClick = (tekst) => {
-                    let action = updateNewsMessageTextActionCreator(tekst);
-                    store.dispatch(action);
-                };
-                return <Contact updateNewTextMessage={onChangeMessageClick}
-                                writeMessage={writeMessage}
-                                newTextMessage={state.MessagesPage.newTextMessage}
-                                MessagesPage={state.MessagesPage}/>
-            }
-            }
-            }
-        </ContextStore.Consumer>
-    )
+let mapStateToProps = (state) => {
+    return {
+        newTextMessage: state.MessagesPage.newTextMessage,
+        MessagesPage: state.MessagesPage
+    }
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewTextMessage: (tekst) => {
+            let action = updateNewsMessageTextActionCreator(tekst);
+            dispatch(action);
+        },
+        writeMessage: dispatch(writeMessageActionCreator())
+    }
+}
+const ContactContainer = connect (mapStateToProps, mapDispatchToProps)(Contact)
 export default ContactContainer;
