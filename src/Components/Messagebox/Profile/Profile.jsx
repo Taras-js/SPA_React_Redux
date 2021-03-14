@@ -4,6 +4,7 @@ import small from "../Contacts/Contacte/Img/3AlV.gif";
 
 
 const Profile = (props) => {
+
     let NewProfile = (props) => {
         return (
             <div className={s.profile}>

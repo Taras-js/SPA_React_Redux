@@ -8,7 +8,8 @@ import Help from "./Help/Help";
 import Contacts from "./Contacts/Contacts";
 import Relatives from "./Relatives/Relatives";
 import ProfileContainer from "./Profile/ProfileContainer";
-import Users from "./Users/Users";
+import UsersContainer from "./Users/UsersContainer";
+
 
 const Messagebox = () => {
     return (
@@ -22,7 +23,7 @@ const Messagebox = () => {
                    render={() => <Contacts />}/>
             <Route className={s.item} path='/message' render={() => <Messages/>}/>
             <Route className={s.item} path='/friends' render={() => <Friends/>}/>
-            <Route className={s.item} path='/users' render={() => <Users/>}/>
+            <Route className={s.item} path='/users' render={() => <UsersContainer/>}/>
             <Route className={s.item} path='/relatives' render={() => <Relatives/>}/>
             <Route className={s.item} path='/photos' render={() => <Photo/>}/>
             <Route className={s.item} path='/help' render={() => <Help/>}/>
