@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
-       users: state.UsersPage.users
+        users: state.UsersPage.users
     }
 
 }
@@ -14,7 +14,7 @@ let mapDispatchToProps = (dispatch) => {
         follow: (userId) => {
             dispatch(followAC(userId));
         },
-       unFollow: (userId) => {
+        unfollow: (userId) => {
             dispatch(unFollowAC(userId));
         },
         setUsers: (users) => {
@@ -22,5 +22,5 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-const UsersContainer = connect (mapStateToProps, mapDispatchToProps)(Users)
+const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(Users)
 export default UsersContainer;

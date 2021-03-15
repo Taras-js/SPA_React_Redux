@@ -3,53 +3,7 @@ const UN_FOLLOW = 'UN-FOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [
-        {
-            id: 1,
-            coverPhotosUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuChMtlfs1cg25CLIjB2cN4lF8EWo6cxtNEA&usqp=CAU',
-            followed: false,
-            fullName: 'Jason Statham',
-            age: 40,
-            work: 'Officer',
-            dream: 'Frontend developer',
-            stack: 'Html5, Css3, Flex, Grid, React, Redux, Typescript, Webstorm ',
-            residence: {country: 'USA', city: 'New York'}
-        },
-        {
-            id: 2,
-            coverPhotosUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuChMtlfs1cg25CLIjB2cN4lF8EWo6cxtNEA&usqp=CAU',
-            followed: true,
-            fullName: 'Jason Statham',
-            age: 40,
-            work: 'Officer',
-            dream: 'Frontend developer',
-            stack: 'Html5, Css3, Flex, Grid, React, Redux, Typescript, Webstorm ',
-            residence: {country: 'USA', city: 'New York'}
-        },
-        {
-            id: 3,
-            coverPhotosUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuChMtlfs1cg25CLIjB2cN4lF8EWo6cxtNEA&usqp=CAU',
-            followed: false,
-            fullName: 'Jason Statham',
-            age: 40,
-            work: 'Officer',
-            dream: 'Frontend developer',
-            stack: 'Html5, Css3, Flex, Grid, React, Redux, Typescript, Webstorm ',
-            residence: {country: 'USA', city: 'New York'}
-        },
-        {
-            id: 4,
-            coverPhotosUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuChMtlfs1cg25CLIjB2cN4lF8EWo6cxtNEA&usqp=CAU',
-            followed: true,
-            fullName: 'Jason Statham',
-            age: 40,
-            work: 'Officer',
-            dream: 'Frontend developer',
-            stack: 'Html5, Css3, Flex, Grid, React, Redux, Typescript, Webstorm ',
-            residence: {country: 'USA', city: 'New York'}
-        }
-    ],
-
+    users: []
 };
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
