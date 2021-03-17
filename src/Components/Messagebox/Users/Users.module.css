@@ -6,7 +6,7 @@
 .user {
     display: grid;
     grid-template-rows:  min-content;
-    grid-template-columns:  1fr 1fr;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
 
 }
 
@@ -20,5 +20,9 @@
 
 .item {
 
+
+}
+.selectedPage{
+    background-color: yellow;
 
 }
