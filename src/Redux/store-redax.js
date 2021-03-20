@@ -3,6 +3,7 @@ import personalReducer from "./personal-reducer";
 import messagesReducer from "./messages-reducer";
 import toolsboxReducer from "./toolsbox-reducer";
 import usersReducer from "./users-reducer";
+
 let reducers = combineReducers({
     PersonalPage: personalReducer,
     MessagesPage: messagesReducer,

@@ -22,7 +22,10 @@
 
 
 }
-.selectedPage{
+
+.selectedPage {
     background-color: yellow;
+    height: 20px;
+    width: 20px;
 
 }

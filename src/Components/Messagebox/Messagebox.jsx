@@ -3,7 +3,7 @@ import s from './Messagebox.module.css';
 import {Route} from "react-router-dom";
 import Messages from "./Message/Messages";
 import Friends from "./Friends/Friends";
-import Photo from "./Fotos/Fotos";
+import Photos from "./Photos/Photos";
 import Help from "./Help/Help";
 import Contacts from "./Contacts/Contacts";
 import Relatives from "./Relatives/Relatives";
@@ -25,7 +25,7 @@ const Messagebox = () => {
             <Route className={s.item} path='/friends' render={() => <Friends/>}/>
             <Route className={s.item} path='/users' render={() => <UsersContainer/>}/>
             <Route className={s.item} path='/relatives' render={() => <Relatives/>}/>
-            <Route className={s.item} path='/photos' render={() => <Photo/>}/>
+            <Route className={s.item} path='/photos' render={() => <Photos/>}/>
             <Route className={s.item} path='/help' render={() => <Help/>}/>
         </div>
 

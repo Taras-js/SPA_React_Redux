@@ -65,6 +65,6 @@ export let setCurrentPageAC = (currentPage) => {
 export let setTotalUsersCountAC = (totalUsersCount) => {
     return {
         type: SET_USERS_TOTAL_COUNT, count: totalUsersCount
-}
+    }
 };
 export default usersReducer;
