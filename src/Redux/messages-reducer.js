@@ -16,7 +16,6 @@ let initialState = {
         {id: 4, letter: 'ton'},
         {id: 5, letter: 'Hip-hop'},
         {id: 6, letter: 'I am Programmer'}
-
     ],
     newTextMessage: 'Еще, еще, быстрее'
 };
@@ -29,10 +28,9 @@ let messagesReducer = (state = initialState, action) => {
                 newTextMessage: ' '
             }
         case UPDATE_NEWS_MESSAGE_TEXT:
-            return { ...state, newTextMessage: action.newTextText }
+            return {...state, newTextMessage: action.newTextText}
         default:
             return state;
-
     }
 }
 export let writeMessageActionCreator = () => {

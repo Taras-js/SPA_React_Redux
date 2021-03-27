@@ -4,7 +4,7 @@
     margin: 3px;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
     grid-template-rows: auto;
     justify-items: self-start;
 
@@ -24,7 +24,7 @@
 }
 
 .registrationForm {
-
+    color: black;
 
 }
 
@@ -39,3 +39,8 @@
 
 
 /*}*/
+
+.login {
+    color: #FA5667;
+    font-size: 14px;
+}

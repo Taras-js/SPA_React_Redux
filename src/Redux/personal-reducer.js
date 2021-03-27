@@ -1,5 +1,6 @@
 const ADD_ITEM_POST = 'ADD-ITEM-POST';
 const UPDATE_NEWS_POST_TEXT = 'UPDATE-NEWS-POST-TEXT';
+const SET_PERSONAL_DATA = 'SET-PERSONAL-DATA';
 let initialState = {
     person: [
         {id: 1, name: 'Taras', age: 40, work: 'Officer', dream: 'Frontend developer'}
@@ -17,7 +18,8 @@ let initialState = {
         {id: 5, post: 'Hip-hop'},
         {id: 6, post: 'I am Programmer'}
     ],
-    newTextPost: 'Учись Быстрее'
+    newTextPost: 'Учись Быстрее',
+    profile: null
 };
 let personalReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -27,20 +29,24 @@ let personalReducer = (state = initialState, action) => {
                 ...state,
                 posts: [...state.posts, {id: 7, post: state.newTextPost}],
                 newTextPost: ' '
-
             }
         case UPDATE_NEWS_POST_TEXT:
             return {...state, newTextPost: action.newText}
+        case SET_PERSONAL_DATA:
+            return {...state, profile: action.profile}
         default:
             return state;
     }
 }
-export let writePostActionCreator = () => {
+export let writePost = () => {
     return {type: ADD_ITEM_POST}
 }
-export let updateNewsPostTextActionCreator = (text) => {
+export let updateNewsPostText = (text) => {
     return {
         type: UPDATE_NEWS_POST_TEXT, newText: text
     }
+}
+export let setPersonalData = (profile) => {
+    return {type:  SET_PERSONAL_DATA, profile: profile}
 }
 export default personalReducer;

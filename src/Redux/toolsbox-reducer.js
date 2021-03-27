@@ -9,11 +9,7 @@ let initialState = {
         {id: 7, name: 'Harry'}
     ]
 };
-
 let toolsboxReducer = (state = initialState, action) => {
-
-
     return state
 }
-
 export default toolsboxReducer;

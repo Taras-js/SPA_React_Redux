@@ -1,15 +1,14 @@
 import React, {} from 'react';
 import './App.css';
-import Header from "./Components/Header/Header";
 import Toolbar from "./Components/Toolbar/Toolbar";
 import Messagebox from "./Components/Messagebox/Messagebox";
-
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 const App = () => {
     return (
         <div className='wrapper'>
-            <Header/>
-            <Toolbar/>
+            <HeaderContainer />
+            <Toolbar />
             <Messagebox />
         </div>
     );

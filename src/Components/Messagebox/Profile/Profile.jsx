@@ -1,6 +1,7 @@
 import React, {} from 'react';
 import s from './Profile.module.css';
 import small from "../Contacts/Contacte/Img/3AlV.gif";
+import PreLoader from "../../PreLoader/Preloader";
 
 
 const Profile = (props) => {
@@ -34,9 +35,12 @@ const Profile = (props) => {
         let text = addNewPost.current.value;
         props.changeClick(text);
     };
+    if (!props.profile){
+        return <PreLoader />
+    }
     return (
         <div className={s.profile}>
-            <img alt='disabled' src={small}/>
+            <img className={s.large} alt='disabled' src={props.profile.photos.large}/>
             <div>{personalProfile}</div>
             <div> My posts
                 <div>{newPosts}</div>
