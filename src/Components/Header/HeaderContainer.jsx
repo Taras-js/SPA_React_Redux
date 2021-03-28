@@ -3,7 +3,6 @@ import Header from "./Header";
 import * as axios from "axios";
 import {setAuthPersonalData} from "../../Redux/auth-reducer";
 import {connect} from "react-redux";
-
 class HeaderContainer extends React.Component{
  componentDidMount() {
      axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
@@ -16,7 +15,6 @@ class HeaderContainer extends React.Component{
             }
          });
  }
-
     render() {
         return (
            <Header {...this.props} />

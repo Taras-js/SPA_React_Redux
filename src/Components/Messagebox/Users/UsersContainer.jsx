@@ -16,6 +16,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.UsersPage.totalUsersCount,
         currentPage: state.UsersPage.currentPage,
         isFetching: state.UsersPage.isFetching
+
     }
 }
 const UsersContainer = connect(mapStateToProps, {

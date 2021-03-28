@@ -1,5 +1,5 @@
 const FOLLOW = 'FOLLOW';
-const UN_FOLLOW = 'UN-FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET-USERS-TOTAL-COUNT';
@@ -16,17 +16,17 @@ let usersReducer = (state = initialState, action) => {
         case FOLLOW:
             return {
                 ...state,
-                users: state.users.map((u) => {
+                users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, followed: true}
                     }
                     return u;
                 })
             }
-        case UN_FOLLOW:
+        case UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map((u) => {
+                users: state.users.map(u => {
                     if (u.id === action.userId) {
                         return {...u, followed: false}
                     }
@@ -53,7 +53,7 @@ export let follow = (userId) => {
 };
 export let unfollow = (userId) => {
     return {
-        type: UN_FOLLOW, userId
+        type: UNFOLLOW, userId
     }
 };
 export let setUsers = (users) => {
