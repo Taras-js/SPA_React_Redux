@@ -2,7 +2,7 @@ import React, {} from 'react';
 import s from './Profile.module.css';
 import small from "../Contacts/Contacte/Img/3AlV.gif";
 import PreLoader from "../../PreLoader/Preloader";
-
+import Photos from '../Contacts/Contacte/Img/3AlT.gif'
 
 const Profile = (props) => {
 
@@ -40,7 +40,9 @@ const Profile = (props) => {
     }
     return (
         <div className={s.profile}>
-            <img className={s.large} alt='disabled' src={props.profile.photos.large}/>
+            <img className={s.large} alt='disabled' src={props.profile.photos.small !== null
+                ? props.profile.photos.small
+                : Photos }/>
             <div>{personalProfile}</div>
             <div> My posts
                 <div>{newPosts}</div>
