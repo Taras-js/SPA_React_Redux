@@ -4,12 +4,14 @@ const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_USERS_TOTAL_COUNT = 'SET-USERS-TOTAL-COUNT';
 const TOGGLE_ISFETCHING = 'TOGGLE-ISFETCHING';
+const DISABLE_BUTTON_REQUEST_TIME = 'DISABLE-BUTTON-REQUEST-TIME'
 let initialState = {
     users: [],
     totalUsersCount: 0,
     pageSize: 50,
     currentPage: 1,
-    isFetching: false
+    isFetching: true,
+    isDisabledButton: []
 };
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -44,17 +46,23 @@ let usersReducer = (state = initialState, action) => {
         case TOGGLE_ISFETCHING: {
             return {...state, isFetching: action.isFetching}
         }
+        case DISABLE_BUTTON_REQUEST_TIME: {
+            return {
+                ...state,
+                isDisabledButton: action.isFetching
+                    ? [...state.isDisabledButton, action.userId]
+                    : state.isDisabledButton.filter(id => id !== action.userId)
+            }
+        }
         default:
             return state;
     }
 }
-export let follow = (userId) => {
+export let followUpsuccess = (userId) => {
     return {type: FOLLOW, userId}
 };
-export let unfollow = (userId) => {
-    return {
-        type: UNFOLLOW, userId
-    }
+export let unfollowUpsuccess = (userId) => {
+    return {type: UNFOLLOW, userId}
 };
 export let setUsers = (users) => {
     return {
@@ -76,4 +84,9 @@ export let toggleIsFetching = (isFetching) => {
         type: TOGGLE_ISFETCHING, isFetching
     }
 };
+export let disableButton = (isFetching, userId) => {
+    return {
+        type: DISABLE_BUTTON_REQUEST_TIME, isFetching, userId
+    }
+}
 export default usersReducer;

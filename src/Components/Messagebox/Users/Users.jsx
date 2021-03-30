@@ -2,13 +2,13 @@ import React, {} from 'react';
 import s from "./Users.module.css";
 import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../../API/api";
-
-
-
+import Usersphoto from '../Contacts/Contacte/Img/3AlT.gif'
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {pages.push(i);}
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
     return (
         <div>
             <div>
@@ -22,8 +22,10 @@ const Users = (props) => {
             {props.users.map(u => {
                 return <div className={s.user} key={u.id}>
                     <div>
-                        <NavLink to={'/profile/' + u.id}>
-                            <img className={s.photo} alt='disabled' src={u.photos.small}/>
+                        <NavLink to={`/profile/${ u.id}`}>
+                            <img className={s.photo} alt='disabled' src={u.photos.small !== null
+                                ? u.photos.small
+                                : Usersphoto }/>
                         </NavLink>
                     </div>
                     <div className={s.item}>Name: {u.name}</div>
@@ -35,23 +37,26 @@ const Users = (props) => {
                     <div className={s.item}>City:</div>
                     <div className={s.followed}>
                         {u.followed
-                            ? <button onClick={() => {
+                            ? <button disabled={props.isDisabledButton.some(id => id === u.id)} onClick={() => {
+                                props.disableButton(true, u.id)
                                 usersAPI.unfollow(u.id)
-                                .then(response => {
-                                if (response.data.resultCode === 0)
-                                {
-                                    props.unfollow(u.id);}
-                                                            });
-                        }}>Unfollow</button>
-
-                            : <button onClick={() => {
-                               usersAPI.follow(u.id)
                                     .then(response => {
-                                    if (response.data.resultCode === 0) {
-                                        props.follow(u.id);
-                                    }
+                                        if (response.data.resultCode === 0) {
+                                            props.unfollowUpsuccess(u.id);
+                                        }
+                                        props.disableButton(false, u.id)
+                                    });
+                            }}>Unfollow</button>
 
-                                });
+                            : <button disabled={props.isDisabledButton.some(id => id === u.id)} onClick={() => {
+                                props.disableButton(true, u.id)
+                                usersAPI.follow(u.id)
+                                    .then(response => {
+                                        if (response.data.resultCode === 0) {
+                                            props.followUpsuccess(u.id);
+                                        }
+                                        props.disableButton(false, u.id)
+                                    });
                             }}>Follow</button>};
                     </div>
                 </div>

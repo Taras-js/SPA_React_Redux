@@ -1,3 +1,5 @@
+import {profileAPI} from "../API/api";
+
 const ADD_ITEM_POST = 'ADD-ITEM-POST';
 const UPDATE_NEWS_POST_TEXT = 'UPDATE-NEWS-POST-TEXT';
 const SET_PERSONAL_DATA = 'SET-PERSONAL-DATA';
@@ -48,5 +50,9 @@ export let updateNewsPostText = (text) => {
 }
 export let setPersonalData = (profile) => {
     return {type:  SET_PERSONAL_DATA, profile: profile}
+}
+//Thunk:санки в действии;
+export const getPersonalData = (userId) => (dispatch) => {
+    profileAPI.setPersonData(userId).then(response => {dispatch(setPersonalData(response.data));});
 }
 export default personalReducer;

@@ -1,13 +1,14 @@
 import {
-    setPersonalData,
+    getPersonalData,
     updateNewsPostText,
     writePost
 } from "../../../Redux/personal-reducer";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import * as React from "react";
-import axios from "axios";
 import {withRouter} from "react-router";
+import {compose} from "redux";
+
 
 
 class ProfileContainer extends React.Component {
@@ -16,20 +17,14 @@ class ProfileContainer extends React.Component {
 if (!userId) {
 userId =2;
 }
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${ userId }`, {
-            withCredentials: true,
-           })
-            .then(response => {
-                this.props.setPersonalData(response.data);
-            });
-
- }
+ this.props.getPersonalData(userId);
+  }
     render() {
         return (
         <Profile {...this.props} profile={this.props.profile}/>
         )
     }
-};
+}
     let mapStateToProps = (state) => {
     return {
         PersonalPage: state.PersonalPage,
@@ -38,5 +33,6 @@ userId =2;
         profile: state.PersonalPage.profile
     }
 }
-let withUrlDataContainerComponent = withRouter(ProfileContainer);
-export default connect(mapStateToProps, {writePost, updateNewsPostText, setPersonalData})(withUrlDataContainerComponent);
+// let withUrlDataContainerComponent = withRouter(ProfileContainer);
+export default compose(connect(mapStateToProps, {getPersonalData, writePost, updateNewsPostText}),
+    withRouter)(ProfileContainer);
