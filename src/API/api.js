@@ -15,7 +15,7 @@ export const usersAPI = {
     unfollow(userId) {
         return templates.delete(`follow/${userId}`)
     },
-    getUsers(currentPage=4, pageSize=100) {
+    getUsers(currentPage, pageSize=100) {
         return templates.get(`users?page=${currentPage}&count=${pageSize}`)
     },
     setUserPage(pageNumber, pageSize) {

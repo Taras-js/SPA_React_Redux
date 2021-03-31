@@ -4,7 +4,7 @@ import {Route} from "react-router-dom";
 import Messages from "./Message/Messages";
 import Friends from "./Friends/Friends";
 import Photos from "./Photos/Photos";
-import Help from "./Help/Help";
+import Login from "./Login/Login";
 import Contacts from "./Contacts/Contacts";
 import Relatives from "./Relatives/Relatives";
 import ProfileContainer from "./Profile/ProfileContainer";
@@ -27,7 +27,7 @@ const Messagebox = () => {
             <Route className={s.item} path='/users' render={() => <UsersContainer/>}/>
             <Route className={s.item} path='/relatives' render={() => <Relatives/>}/>
             <Route className={s.item} path='/photos' render={() => <Photos />}/>
-            <Route className={s.item} path='/help' render={() => <Help/>}/>
+            <Route className={s.item} path='/login' render={() => <Login/>}/>
         </div>
     );
 }

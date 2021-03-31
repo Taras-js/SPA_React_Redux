@@ -30,7 +30,7 @@ const Users = (props) => {
                     </div>
                     <div className={s.item}>Name: {u.name}</div>
                     <div className={s.item}>Status: {u.status}</div>
-                    <div className={s.item}>uniqueUrlName:</div>
+                    <div className={s.item}>LastName:</div>
                     <div className={s.item}>Dream:</div>
                     <div className={s.item}>Stack:</div>
                     <div className={s.item}>Country:</div>

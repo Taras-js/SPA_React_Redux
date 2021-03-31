@@ -10,7 +10,7 @@ const DISABLE_BUTTON_REQUEST_TIME = 'DISABLE-BUTTON-REQUEST-TIME'
 let initialState = {
     users: [],
     totalUsersCount: 0,
-    pageSize: 50,
+    pageSize: 100,
     currentPage: 1,
     isFetching: true,
     isDisabledButton: []
