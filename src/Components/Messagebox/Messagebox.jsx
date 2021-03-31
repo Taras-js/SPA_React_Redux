@@ -11,6 +11,7 @@ import ProfileContainer from "./Profile/ProfileContainer";
 import UsersContainer from "./Users/UsersContainer";
 
 const Messagebox = () => {
+
     return (
         <div className={s.messagebox}>
             <div><img className={s.img} alt='disabled'
@@ -25,7 +26,7 @@ const Messagebox = () => {
             <Route className={s.item} path='/friends' render={() => <Friends/>}/>
             <Route className={s.item} path='/users' render={() => <UsersContainer/>}/>
             <Route className={s.item} path='/relatives' render={() => <Relatives/>}/>
-            <Route className={s.item} path='/photos' render={() => <Photos/>}/>
+            <Route className={s.item} path='/photos' render={() => <Photos />}/>
             <Route className={s.item} path='/help' render={() => <Help/>}/>
         </div>
     );

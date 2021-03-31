@@ -1,45 +1,28 @@
-import {connect} from "react-redux";
-import Users from "./Users";
-import PreLoader from "../../PreLoader/Preloader";
-import {usersAPI} from "../../../API/api";
-import {
-    setUsers,
-    setCurrentPage,
-    setTotalUsersCount,
-    toggleIsFetching, unfollowUpsuccess, followUpsuccess, disableButton
-
-} from "../../../Redux/users-reducer";
 import * as React from "react";
 import {compose} from "redux";
 import {withRouter} from "react-router";
-
+import {connect} from "react-redux";
+import Users from "./Users";
+import PreLoader from "../../PreLoader/Preloader";
+import {
+    setUsersPageData,
+    unfollowUpsuccess, followUpsuccess, disableButton,
+    getUsersData
+} from "../../../Redux/users-reducer";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-                this.props.toggleIsFetching(false);
-            });
+       this.props.getUsersData(this.props.currentPage, this.props.pageSize)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-
-        usersAPI.setUserPage(pageNumber, this.props.pageSize)
-            .then(response => {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.data.items);
-            });
-    };
+        this.props.setUsersPageData(pageNumber, this.props.pageSize)
+            }
 
     render() {
         return (
             <div>
-                <div>{this.props.isFetching ? <PreLoader/> : null}</div>
+                <div>{this.props.isFetching ? <PreLoader /> : null}</div>
                 <Users totalUsersCount={this.props.totalUsersCount}
                        pageSize={this.props.pageSize}
                        currentPage={this.props.currentPage}
@@ -67,6 +50,5 @@ let mapStateToProps = (state) => {
     }
 }
 export default compose(connect(mapStateToProps, {
-    unfollowUpsuccess, followUpsuccess, setUsers, setCurrentPage,
-    setTotalUsersCount, toggleIsFetching, disableButton}
+    unfollowUpsuccess, followUpsuccess, setUsersPageData,getUsersData, disableButton}
 ), withRouter)(UsersContainer)

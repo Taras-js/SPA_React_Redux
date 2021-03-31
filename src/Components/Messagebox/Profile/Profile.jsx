@@ -5,7 +5,6 @@ import PreLoader from "../../PreLoader/Preloader";
 import Photos from '../Contacts/Contacte/Img/3AlT.gif'
 
 const Profile = (props) => {
-
     let NewProfile = (props) => {
         return (
             <div className={s.profile}>
@@ -26,7 +25,8 @@ const Profile = (props) => {
                 {props.post}
             </div>)
     };
-    let newPosts = props.PersonalPage.posts.map(posts => <AddPosts src={small} id={posts.id} post={posts.post}/>);
+    let newPosts = props.PersonalPage.posts.map(posts => <AddPosts src={small}
+                     id={posts.id} post={posts.post}/>);
     let onWritePost = () => {
        props.writePost();
     };
@@ -40,7 +40,8 @@ const Profile = (props) => {
     }
     return (
         <div className={s.profile}>
-            <img className={s.large} alt='disabled' src={props.profile.photos.small !== null
+            <img className={s.large} alt='disabled'
+            src={props.profile.photos.small !== null
                 ? props.profile.photos.small
                 : Photos }/>
             <div>{personalProfile}</div>

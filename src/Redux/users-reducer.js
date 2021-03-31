@@ -1,3 +1,5 @@
+import {usersAPI} from "../API/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
@@ -89,4 +91,25 @@ export let disableButton = (isFetching, userId) => {
         type: DISABLE_BUTTON_REQUEST_TIME, isFetching, userId
     }
 }
+//Thunk:санки в действии;
+export let getUsersData = (page, pageSize) => (dispatch) => {
+    dispatch(toggleIsFetching(true));
+    dispatch(setCurrentPage(page));
+    usersAPI.getUsers(pageSize)
+        .then(response => {
+            dispatch(setUsers(response.data.items))
+            dispatch(setTotalUsersCount(response.data.totalCount))
+            dispatch(toggleIsFetching(false))
+        })
+}
+export let setUsersPageData = (pageNumber, pageSize) => (dispatch) => {
+    dispatch(toggleIsFetching(true), setCurrentPage(pageNumber))
+    usersAPI.setUserPage(pageNumber, pageSize)
+        .then(response => {
+            dispatch(toggleIsFetching(false))
+            dispatch(setUsers(response.data.items))
+        })
+}
 export default usersReducer;
+
+
