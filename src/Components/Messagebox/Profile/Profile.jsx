@@ -39,7 +39,7 @@ const Profile = (props) => {
     if (!props.profile){
         return <PreLoader />
     }
-    if (!!props.isAuth) return <Redirect to='/login' />;
+
     return (
         <div className={s.profile}>
             <img className={s.large} alt='disabled'

@@ -4,7 +4,7 @@ import s from './Addfriends.module.css';
 import {Redirect} from "react-router";
 
 const Addfriends = (props) => {
-    if (!props.isAuth) return <Redirect to='/login' />
+    if (!!props.isAuth) return <Redirect to='/login' />
     return (
 
         <nav className={s.addfriends}>

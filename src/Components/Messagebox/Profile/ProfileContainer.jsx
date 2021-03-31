@@ -8,6 +8,7 @@ import {
     writePost
 } from "../../../Redux/personal-reducer";
 import Profile from "./Profile";
+import {witchAutoRedirect} from "../../../Hoc/witchAutoRedirect";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -35,5 +36,5 @@ let mapStateToProps = (state) => {
     }
 }
 // let withUrlDataContainerComponent = withRouter(ProfileContainer);
-export default compose(connect(mapStateToProps, {getPersonalData, writePost, updateNewsPostText}),
-                    withRouter)(ProfileContainer);
+export default compose((connect(mapStateToProps, {getPersonalData, writePost, updateNewsPostText}),
+                    withRouter), witchAutoRedirect) (ProfileContainer);
