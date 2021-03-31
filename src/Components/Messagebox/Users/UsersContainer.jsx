@@ -46,7 +46,8 @@ let mapStateToProps = (state) => {
         totalUsersCount: state.UsersPage.totalUsersCount,
         currentPage: state.UsersPage.currentPage,
         isFetching: state.UsersPage.isFetching,
-        isDisabledButton: state.UsersPage.isDisabledButton
+        isDisabledButton: state.UsersPage.isDisabledButton,
+        isAuth: state.auth.isAuth
     }
 }
 export default compose(connect(mapStateToProps, {

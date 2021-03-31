@@ -1,7 +1,7 @@
 import React, {} from 'react';
 
 
-const Login = () => {
+const Login = (props) => {
     return (
         <div className='message'>
             <div>LOGIN</div>

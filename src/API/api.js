@@ -32,3 +32,4 @@ export const profileAPI = {
         return templates.get(`profile/${userId}`)
     }
 };
+

@@ -3,12 +3,14 @@ import s from "./Users.module.css";
 import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../../API/api";
 import Usersphoto from '../Contacts/Contacte/Img/3AlT.gif'
+import {Redirect} from "react-router";
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
+    if (!!props.isAuth) return <Redirect to='/login' />;
     return (
         <div>
             <div>

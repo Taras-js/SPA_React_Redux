@@ -3,6 +3,7 @@ import s from './Profile.module.css';
 import small from "../Contacts/Contacte/Img/3AlV.gif";
 import PreLoader from "../../PreLoader/Preloader";
 import Photos from '../Contacts/Contacte/Img/3AlT.gif'
+import {Redirect} from "react-router";
 
 const Profile = (props) => {
     let NewProfile = (props) => {
@@ -38,6 +39,7 @@ const Profile = (props) => {
     if (!props.profile){
         return <PreLoader />
     }
+    if (!!props.isAuth) return <Redirect to='/login' />;
     return (
         <div className={s.profile}>
             <img className={s.large} alt='disabled'

@@ -30,7 +30,8 @@ let mapStateToProps = (state) => {
         PersonalPage: state.PersonalPage,
         newTextMessage: state.PersonalPage.newTextMessage,
         newTextPost: state.PersonalPage.newTextPost,
-        profile: state.PersonalPage.profile
+        profile: state.PersonalPage.profile,
+        isAuth: state.auth.isAuth
     }
 }
 // let withUrlDataContainerComponent = withRouter(ProfileContainer);

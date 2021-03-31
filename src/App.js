@@ -4,7 +4,7 @@ import Toolbar from "./Components/Toolbar/Toolbar";
 import Messagebox from "./Components/Messagebox/Messagebox";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 
-const App = () => {
+const App = (props) => {
     return (
         <div className='wrapper'>
             <HeaderContainer />

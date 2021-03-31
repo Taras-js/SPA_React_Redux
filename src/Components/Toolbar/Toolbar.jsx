@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import s from './Toolbar.module.css';
 import Addfriends from "./Addfriends/Addfriends";
 
-const Toolbar = () => {
+const Toolbar = (props) => {
     return (
         <div className={s.toolsbox}>
             <nav className={s.nav}>
@@ -18,7 +18,7 @@ const Toolbar = () => {
 
             </nav>
 
-            <Addfriends/>
+            <Addfriends />
         </div>
 
     );

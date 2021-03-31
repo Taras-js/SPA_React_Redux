@@ -10,7 +10,7 @@ import Relatives from "./Relatives/Relatives";
 import ProfileContainer from "./Profile/ProfileContainer";
 import UsersContainer from "./Users/UsersContainer";
 
-const Messagebox = () => {
+const Messagebox = (props) => {
 
     return (
         <div className={s.messagebox}>
