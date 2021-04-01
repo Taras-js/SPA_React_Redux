@@ -7,8 +7,8 @@ import {
     updateNewsPostText,
     writePost
 } from "../../../Redux/personal-reducer";
-import Profile from "./Profile";
-import {witchAutoRedirect} from "../../../Hoc/witchAutoRedirect";
+import ProfileData from "./ProfileData";
+import ProfileStatus from "./ProfileStatus";
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -21,7 +21,19 @@ class ProfileContainer extends React.Component {
 
     render() {
         return (
-            <Profile {...this.props} profile={this.props.profile}/>
+            <div>
+                <ProfileStatus status={this.props.status}/>
+                <ProfileData  profile={this.props.profile}
+                                PersonalPage={this.props.PersonalPage}
+                                newTextMessage={this.props.newTextMessage}
+                                newTextPost={this.props.newTextPost}
+                                isAuth={this.props.isAuth}
+                              writePost={this.props.writePost}
+                              updateNewsPostText={this.props.updateNewsPostText}
+
+
+                />
+            </div>
         )
     }
 }
@@ -32,9 +44,10 @@ let mapStateToProps = (state) => {
         newTextMessage: state.PersonalPage.newTextMessage,
         newTextPost: state.PersonalPage.newTextPost,
         profile: state.PersonalPage.profile,
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        status: 'Hello Programmer'
     }
 }
 // let withUrlDataContainerComponent = withRouter(ProfileContainer);
-export default compose((connect(mapStateToProps, {getPersonalData, writePost, updateNewsPostText}),
-                    withRouter), witchAutoRedirect) (ProfileContainer);
+export default compose(connect(mapStateToProps, {getPersonalData, writePost, updateNewsPostText}),
+                    withRouter) (ProfileContainer);
