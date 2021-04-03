@@ -1,0 +1,28 @@
+.taras-slider{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    grid-gap: 40px;
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.taras-slider .current-photos{
+    width: 1000px;
+    border-radius: 50px;
+}
+
+.next-button {
+    background-color: #412e2e;
+    height: 50px;
+    border-radius: 30px;
+    color: azure;
+    margin-top: 300px;
+}
+.prev-button {
+    background-color: #412e2e;
+    height: 50px;
+    border-radius: 30px;
+    color: azure;
+    margin-top: 300px;
+}
