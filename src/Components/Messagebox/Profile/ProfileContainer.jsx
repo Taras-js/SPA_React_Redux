@@ -3,7 +3,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {withRouter} from "react-router";
 import {
-    getPersonalData,
+    getPersonalData, setStatus,
     updateNewsPostText,
     writePost
 } from "../../../Redux/personal-reducer";
@@ -23,13 +23,15 @@ class ProfileContainer extends React.Component {
         return (
             <div>
                 <ProfileStatus status={this.props.status}/>
-                <ProfileData  profile={this.props.profile}
+                <ProfileData    profile={this.props.profile}
                                 PersonalPage={this.props.PersonalPage}
                                 newTextMessage={this.props.newTextMessage}
                                 newTextPost={this.props.newTextPost}
                                 isAuth={this.props.isAuth}
-                              writePost={this.props.writePost}
-                              updateNewsPostText={this.props.updateNewsPostText}
+                                writePost={this.props.writePost}
+                                updateNewsPostText={this.props.updateNewsPostText}
+                                status={this.props.status}
+                                setStatus={this.props.setStatus}
 
 
                 />
@@ -45,9 +47,9 @@ let mapStateToProps = (state) => {
         newTextPost: state.PersonalPage.newTextPost,
         profile: state.PersonalPage.profile,
         isAuth: state.auth.isAuth,
-        status: 'Hello Programmer'
+        status: state.PersonalPage.status
     }
 }
 // let withUrlDataContainerComponent = withRouter(ProfileContainer);
-export default compose(connect(mapStateToProps, {getPersonalData, writePost, updateNewsPostText}),
+export default compose(connect(mapStateToProps, {getPersonalData, setStatus, writePost, updateNewsPostText}),
                     withRouter) (ProfileContainer);

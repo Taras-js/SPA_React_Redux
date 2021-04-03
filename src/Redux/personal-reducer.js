@@ -3,6 +3,7 @@ import {profileAPI} from "../API/api";
 const ADD_ITEM_POST = 'ADD-ITEM-POST';
 const UPDATE_NEWS_POST_TEXT = 'UPDATE-NEWS-POST-TEXT';
 const SET_PERSONAL_DATA = 'SET-PERSONAL-DATA';
+const SET_STATUS = 'SET-STATUS';
 let initialState = {
     person: [
         {id: 1, name: 'Taras', age: 40, work: 'Officer', dream: 'Frontend developer'}
@@ -21,7 +22,8 @@ let initialState = {
         {id: 6, post: 'I am Programmer'}
     ],
     newTextPost: 'Учись Быстрее',
-    profile: null
+    profile: null,
+    status: ' '
 };
 let personalReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -36,6 +38,8 @@ let personalReducer = (state = initialState, action) => {
             return {...state, newTextPost: action.newText}
         case SET_PERSONAL_DATA:
             return {...state, profile: action.profile}
+        case SET_STATUS:
+            return {...state, status: action.status}
         default:
             return state;
     }
@@ -50,6 +54,9 @@ export let updateNewsPostText = (text) => {
 }
 export let setPersonalData = (profile) => {
     return {type:  SET_PERSONAL_DATA, profile: profile}
+}
+export let setStatus = (status) => {
+    return {type: SET_STATUS, status}
 }
 //Thunk:санки в действии;
 export const getPersonalData = (userId) => (dispatch) => {
