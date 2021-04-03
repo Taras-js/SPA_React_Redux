@@ -23,7 +23,7 @@ let initialState = {
     ],
     newTextPost: 'Учись Быстрее',
     profile: null,
-    status: ' '
+    status: ''
 };
 let personalReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -61,5 +61,13 @@ export let setStatus = (status) => {
 //Thunk:санки в действии;
 export const getPersonalData = (userId) => (dispatch) => {
     profileAPI.setPersonData(userId).then(response => {dispatch(setPersonalData(response.data));});
+}
+export const getPersonStatus = (userId) => (dispatch) => {
+    profileAPI.setPersonStatus(userId).then(response=> {dispatch(setStatus(response.data));});
+}
+export const getUpdatePersonStatus = (status) => (dispatch) => {
+         profileAPI.updatePersonStatus(status).then(response=> {
+         if (response.data.resultCode === 0)
+         {dispatch(setStatus(status))}})
 }
 export default personalReducer;

@@ -30,6 +30,12 @@ export const authAPI = {
 export const profileAPI = {
     setPersonData(userId) {
         return templates.get(`profile/${userId}`)
+    },
+    setPersonStatus(userId) {
+        return templates.get(`/profile/status/${userId}`)
+    },
+    updatePersonStatus(status) {
+        return templates.put(`/profile/status`, {status: status})
     }
 };
 
