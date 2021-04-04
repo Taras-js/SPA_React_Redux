@@ -10,6 +10,7 @@ export class ProfileStatus extends React.Component {
     activateEditStatus = () => {
 
         this.setState({editStatus: true})
+
     }
     deactivateEditStatus = () => {
 
@@ -20,8 +21,9 @@ export class ProfileStatus extends React.Component {
         this.setState({status: e.currentTarget.value})
     }
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.status !== this.props.status)
-        this.setState({status: this.props.status})
+        if (prevProps.status !== this.props.status) {
+            this.setState({status: this.props.status})
+        }
     }
 
     render() {

@@ -17,9 +17,8 @@ class ProfileContainer extends React.Component {
             userId = 2;
         }
         this.props.getPersonalData(userId);
-        setTimeout(() => {
-            this.props.getPersonStatus(userId);
-        },3000)
+        this.props.getPersonStatus(userId);
+
     }
 
     render() {
@@ -38,7 +37,7 @@ class ProfileContainer extends React.Component {
                                 isAuth={this.props.isAuth}
                                 writePost={this.props.writePost}
                                 updateNewsPostText={this.props.updateNewsPostText}
-                                status={this.props.status}
+
 
 
 
