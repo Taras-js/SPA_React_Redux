@@ -12,8 +12,9 @@ const Toolbar = (props) => {
                 <div><NavLink className={s.item} to="/contacts"> Contacts </NavLink></div>
                 <div><NavLink className={s.item} to="/users"> Users </NavLink></div>
                 <div><NavLink className={s.item} to="/friends"> Friends </NavLink></div>
-                <div><NavLink className={s.item} to="/relatives"> Relatives </NavLink></div>
+                <div><NavLink className={s.item} to="/calculator"> Calculator </NavLink></div>
                 <div><NavLink className={s.item} to="/photos"> Photos </NavLink></div>
+                <div><NavLink className={s.item} to="/taskManager"> TaskManager </NavLink></div>
                 <div><NavLink className={s.item} to="/login"> Login </NavLink></div>
 
             </nav>

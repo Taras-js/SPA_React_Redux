@@ -1,7 +1,7 @@
 import React, {} from 'react';
 import './App.css';
 import Toolbar from "./Components/Toolbar/Toolbar";
-import Messagebox from "./Components/Messagebox/Messagebox";
+import Decksite from "./Components/Decksite/Decksite";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 
 const App = (props) => {
@@ -9,7 +9,7 @@ const App = (props) => {
         <div className='wrapper'>
             <HeaderContainer />
             <Toolbar />
-            <Messagebox />
+            <Decksite />
         </div>
     );
 }

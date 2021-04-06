@@ -1,6 +1,6 @@
 .header {
     grid-area: h;
-    background-color: bisque;
+    background-image: url("./../../Img/stone-wall.jpg");
     margin: 3px;
     border-radius: 5px;
     display: grid;
@@ -19,7 +19,7 @@
 }
 
 .title {
-    color: black;
+    color: white;
 
 }
 
@@ -31,7 +31,7 @@
 .titleRegistrationForm {
     margin-top: 0;
     height: 5px;
-    color: #eea67b;
+    color: white;
 }
 
 /*.input {*/
@@ -41,6 +41,6 @@
 /*}*/
 
 .login {
-    color: #FA5667;
+    color: white;
     font-size: 14px;
 }

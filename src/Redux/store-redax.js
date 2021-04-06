@@ -4,7 +4,7 @@ import messagesReducer from "./messages-reducer";
 import toolsboxReducer from "./toolsbox-reducer";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
-import thunk from "redux-thunk";
+import middlewareThunk from "redux-thunk";
 import { reducer as formReducer } from 'redux-form';
 let reducers = combineReducers({
     PersonalPage: personalReducer,
@@ -14,6 +14,6 @@ let reducers = combineReducers({
     auth: authReducer,
     form: formReducer
 })
-let store = createStore(reducers, applyMiddleware(thunk));
+let store = createStore(reducers, applyMiddleware(middlewareThunk));
 export default store;
 window.store = store;
