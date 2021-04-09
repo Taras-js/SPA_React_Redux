@@ -19,6 +19,8 @@ class Slider extends React.Component {
         firstPhotoId: 3
     }
     render() {
+
+
         const prevButton = () => {
 
         };

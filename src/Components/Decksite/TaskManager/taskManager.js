@@ -1,18 +1,22 @@
-// let addNewTask = () => {
-//     let currents = document.querySelector('#currents');
-//     let textTask = document.querySelector('#textTask');
-//     let addTask = document.querySelector('#addTask');
-//     // let allTaskArray = ['Many', 'Dom', 'Auto']
-//     textTask.value = 'Add text task';
-//     addTask.addEventListener('click', () => {
-//         if (textTask.value!=null) {
-//             let newTask = document.createElement('li');
-//             newTask.innerHTML =`<li>${textTask.value}</li>`;
-//             textTask.closest('ul')
-//             currents.appendChild(newTask);
-//             textTask.value = '';
-//         }
-//     })
-// }
-// addNewTask();
+import React, {} from 'react';
+import s from './taskManager.module.css'
+const TaskManager = () => {
+
+    return (
+    <div className={s.taskManager} >
+        <div className={s.currentTask} >
+            <ul>
+                <li> Many</li>
+                <li> Dom</li>
+                <li> Auto</li>
+            </ul>
+        </div>
+        <div>
+            <textarea className={s.textTask} > Add new Task</textarea>
+            <button className={s.addTask} > Add Task</button>
+        </div>
+    </div>
+    )
+}
+export default TaskManager;
 
