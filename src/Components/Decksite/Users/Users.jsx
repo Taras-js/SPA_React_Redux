@@ -2,7 +2,7 @@ import React, {} from 'react';
 import s from "./Users.module.css";
 import {NavLink} from "react-router-dom";
 import {usersAPI} from "../../../API/api";
-import Usersphoto from '../Contacts/Contacte/Img/3AlT.gif'
+import Usersphoto from '../Contacts/Contacte/Img/User-icon.png'
 import {Redirect} from "react-router";
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
