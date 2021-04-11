@@ -1,19 +1,33 @@
 import React, {} from 'react';
 import s from './taskManager.module.css'
-const TaskManager = () => {
+const TaskManager = (props) => {
 
+    let onWriteData = () => {
+        props.writeData()
+    }
+    let addNewData = React.createRef();
+    let onUpdateNewsData = () => {
+        let text = addNewData.current.value
+        props.updateNewsData(text)
+    }
     return (
     <div className={s.taskManager} >
         <div className={s.currentTask} >
             <ul>
-                <li> Many</li>
-                <li> Dom</li>
-                <li> Auto</li>
+                {props.data.map((d) => {
+                    return (<li>{d.name}</li>)
+
+                    })}
             </ul>
         </div>
         <div>
-            <textarea className={s.textTask} > Add new Task</textarea>
-            <button className={s.addTask} > Add Task</button>
+            <textarea onChange={onUpdateNewsData}
+                      className={s.textTask}
+                      ref={addNewData}
+                      value={props.newTextName}
+
+            />
+            <button onClick={onWriteData} className={s.addTask} > Add Task</button>
         </div>
     </div>
     )

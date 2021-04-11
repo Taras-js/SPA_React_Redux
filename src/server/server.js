@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const {createServer} = require('http');
 const app = express();
-const port = 3001;
+const port = 5000;
 mongoose
     .connect('mongodb+srv://fantomas150980:fantomas150980@cluster-taras0.' +
         'tpwnp.mongodb.net/users?retryWrites=true&w=majority', {

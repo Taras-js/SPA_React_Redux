@@ -9,7 +9,7 @@ import Contacts from "./Contacts/Contacts";
 import Calculator from "./Calculator/Calculator";
 import ProfileContainer from "./Profile/ProfileContainer";
 import UsersContainer from "./Users/UsersContainer";
-import TaskManager from "./TaskManager/taskManager";
+import TaskManagerContainer from "./TaskManager/taskManagerContainer";
 
 const Decksite  = (props) => {
     return (
@@ -21,7 +21,7 @@ const Decksite  = (props) => {
             <Route className={s.item} path='/friends' render={() => <Friends />}/>
             <Route className={s.item} path='/calculator' render={() => <Calculator />}/>
             <Route className={s.item} path='/photos' render={() => <Photos />}/>
-            <Route className={s.item} path='/taskManager' render={() => <TaskManager />}/>
+            <Route className={s.item} path='/taskManager' render={() => <TaskManagerContainer />}/>
             <Route className={s.item} path='/login' render={() => <Login />}/>
         </div>
     );
