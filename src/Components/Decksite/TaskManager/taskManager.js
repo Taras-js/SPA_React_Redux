@@ -1,6 +1,8 @@
 import React, {} from 'react';
 import s from './taskManager.module.css'
+
 const TaskManager = (props) => {
+
 
     let onWriteData = () => {
         props.writeData()

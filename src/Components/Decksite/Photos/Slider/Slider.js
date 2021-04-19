@@ -23,7 +23,10 @@ class Slider extends React.Component {
 
         const prevButton = () => {
 
-        };
+
+
+
+        }
         const nextButton = () => {
 
         }
