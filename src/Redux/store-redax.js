@@ -1,20 +1,20 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import personalReducer from "./personal-reducer";
 import messagesReducer from "./messages-reducer";
-import toolsboxReducer from "./toolsbox-reducer";
+import toolsBoxReducer from "./toolsbox-reducer";
 import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
 import middlewareThunk from "redux-thunk";
 import { reducer as formReducer } from 'redux-form';
-import taskmanagerReducer from "./taskmanager-reducer";
+import taskManagerReducer from "./taskmanager-reducer";
 let reducers = combineReducers({
     PersonalPage: personalReducer,
     MessagesPage: messagesReducer,
-    ToolsboxPage: toolsboxReducer,
+    ToolsBoxPage: toolsBoxReducer,
     UsersPage: usersReducer,
     auth: authReducer,
     form: formReducer,
-    TaskManager: taskmanagerReducer
+    TaskManager: taskManagerReducer
 
 })
 let store = createStore(reducers, applyMiddleware(middlewareThunk));

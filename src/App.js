@@ -1,20 +1,20 @@
 import React, {} from 'react';
-import './App.css';
+import s from './App.module.css';
 import Toolbar from "./Components/Toolbar/Toolbar";
-import Decksite from "./Components/Decksite/Decksite";
+import DeckSite from "./Components/Decksite/Decksite";
 import HeaderContainer from "./Components/Header/HeaderContainer";
-import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./Redux/store-redax"
+import {BrowserRouter} from "react-router-dom";
 
 const App = () => {
     return (
         <BrowserRouter>
             <Provider store={store}>
-                <div className='wrapper'>
+                <div className={s.wrapper}>
                     <HeaderContainer/>
                     <Toolbar/>
-                    <Decksite/>
+                    <DeckSite/>
                 </div>
             </Provider>
         </BrowserRouter>);

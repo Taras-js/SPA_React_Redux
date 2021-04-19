@@ -5,11 +5,11 @@ let initialState = {
         {id: 1, name: 'Taras Vasilievich'},
         {id: 2, name: 'Taras'}
     ],
-    newTextName: 'Create name ',
-    newTextEmail: 'Create  email'
+    newTextName: 'Create your name',
+    newTextEmail: 'Create  your email'
 
 };
-let taskmanagerReducer = (state = initialState, action) => {
+let taskManagerReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM_DATA:
             return {
@@ -29,6 +29,6 @@ export let writeData = () => {
 export let updateNewsData = (text) => {
     return {type: UPDATE_NEWS_DATA, newText: text}
 }
-export default taskmanagerReducer;
+export default taskManagerReducer;
 
 
