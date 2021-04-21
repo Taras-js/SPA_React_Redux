@@ -1,9 +1,9 @@
 import React, {} from 'react';
 import s from "./Users.module.css";
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../../API/api";
-import Usersphoto from '../Contacts/Contacte/Img/User-icon.png'
+import UsersPhoto from '../Contacts/Contacte/Img/User-icon.png'
 import {Redirect} from "react-router";
+
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
@@ -27,7 +27,7 @@ const Users = (props) => {
                         <NavLink to={`/profile/${ u.id}`}>
                             <img className={s.photo} alt='disabled' src={u.photos.small !== null
                                 ? u.photos.small
-                                : Usersphoto }/>
+                                : UsersPhoto }/>
                         </NavLink>
                     </div>
                     <div className={s.item}>Name: {u.name}</div>
@@ -40,26 +40,10 @@ const Users = (props) => {
                     <div className={s.followed}>
                         {u.followed
                             ? <button disabled={props.isDisabledButton.some(id => id === u.id)} onClick={() => {
-                                props.disableButton(true, u.id)
-                                usersAPI.unfollow(u.id)
-                                    .then(response => {
-                                        if (response.data.resultCode === 0) {
-                                            props.unfollowUpsuccess(u.id);
-                                        }
-                                        props.disableButton(false, u.id)
-                                    });
-                            }}>Unfollow</button>
+                                props.unfollow(u.id)}}>Follow</button>
 
                             : <button disabled={props.isDisabledButton.some(id => id === u.id)} onClick={() => {
-                                props.disableButton(true, u.id)
-                                usersAPI.follow(u.id)
-                                    .then(response => {
-                                        if (response.data.resultCode === 0) {
-                                            props.followUpsuccess(u.id);
-                                        }
-                                        props.disableButton(false, u.id)
-                                    });
-                            }}>Follow</button>};
+                                props.follow(u.id)}}>Unfollow</button>}
                     </div>
                 </div>
             })}

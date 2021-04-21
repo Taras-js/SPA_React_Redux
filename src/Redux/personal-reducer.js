@@ -4,6 +4,7 @@ const ADD_ITEM_POST = 'ADD-ITEM-POST';
 const UPDATE_NEWS_POST_TEXT = 'UPDATE-NEWS-POST-TEXT';
 const SET_PERSONAL_DATA = 'SET-PERSONAL-DATA';
 const SET_STATUS = 'SET-STATUS';
+const DELETE_POST = 'DELETE-POST';
 let initialState = {
     person: [
         {id: 1, name: 'Taras', age: 40, work: 'Officer', dream: 'Frontend developer'}
@@ -40,24 +41,28 @@ let personalReducer = (state = initialState, action) => {
             return {...state, profile: action.profile}
         case SET_STATUS:
             return {...state, status: action.status}
+        case DELETE_POST:
+            return {...state, posts: state.posts.filter(p => p.id !== action.postId)
+            }
         default:
             return state;
     }
 }
-export let writePost = () => {
+export const writePost = () => {
     return {type: ADD_ITEM_POST}
 }
-export let updateNewsPostText = (text) => {
+export const updateNewsPostText = (text) => {
     return {
         type: UPDATE_NEWS_POST_TEXT, newText: text
     }
 }
-export let setPersonalData = (profile) => {
+export const setPersonalData = (profile) => {
     return {type:  SET_PERSONAL_DATA, profile: profile}
 }
-export let setStatus = (status) => {
+export const setStatus = (status) => {
     return {type: SET_STATUS, status}
 }
+export const deletePost = (postId) => ({type: DELETE_POST, postId})
 //Thunk:санки в действии;
 export const getPersonalData = (userId) => (dispatch) => {
     profileAPI.setPersonData(userId).then(response => {dispatch(setPersonalData(response.data));});

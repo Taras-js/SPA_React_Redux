@@ -1,5 +1,4 @@
 import {usersAPI} from "../API/api";
-
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
@@ -10,13 +9,17 @@ const DISABLE_BUTTON_REQUEST_TIME = 'DISABLE-BUTTON-REQUEST-TIME'
 let initialState = {
     users: [],
     totalUsersCount: 0,
-    pageSize: 100,
+    pageSize: 10,
     currentPage: 1,
     isFetching: true,
-    isDisabledButton: []
+    isDisabledButton: [],
+    randomness: 20
 };
 let usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'RANDOMNESS':
+            return {...state, randomness: state.randomness + 1}
+
         case FOLLOW:
             return {
                 ...state,
@@ -60,10 +63,10 @@ let usersReducer = (state = initialState, action) => {
             return state;
     }
 }
-export let followUpsuccess = (userId) => {
+export let followUpSuccess = (userId) => {
     return {type: FOLLOW, userId}
 };
-export let unfollowUpsuccess = (userId) => {
+export let unfollowUpSuccess = (userId) => {
     return {type: UNFOLLOW, userId}
 };
 export let setUsers = (users) => {
@@ -92,23 +95,44 @@ export let disableButton = (isFetching, userId) => {
     }
 }
 //Thunk:санки в действии;
-export let getUsersData = (page, pageSize) => (dispatch) => {
-    dispatch(toggleIsFetching(true));
-    dispatch(setCurrentPage(page));
-    usersAPI.getUsers(pageSize)
-        .then(response => {
-            dispatch(setUsers(response.data.items))
-            dispatch(setTotalUsersCount(response.data.totalCount))
-            dispatch(toggleIsFetching(false))
-        })
+export let getUsersData = (page, pageSize) => {
+    return (dispatch) => {
+        dispatch(toggleIsFetching(true));
+        dispatch(setCurrentPage(page));
+        usersAPI.getUsers(page, pageSize).then(data => {
+                dispatch(setUsers(data.items));
+                dispatch(setTotalUsersCount(data.totalCount));
+                dispatch(toggleIsFetching(false));
+            });
+    }
 }
-export let setUsersPageData = (pageNumber, pageSize) => (dispatch) => {
-    dispatch(toggleIsFetching(true), setCurrentPage(pageNumber))
-    usersAPI.setUserPage(pageNumber, pageSize)
-        .then(response => {
-            dispatch(toggleIsFetching(false))
-            dispatch(setUsers(response.data.items))
-        })
+
+export const follow = (userId) => {
+    return(dispatch) => {
+        dispatch(disableButton(true, userId));
+        usersAPI.follow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(followUpSuccess(userId));
+                }
+                dispatch(disableButton(false, userId));
+            });
+    }
+
+}
+
+export const unfollow = (userId) => {
+    return(dispatch) => {
+        dispatch(disableButton(true, userId));
+        usersAPI.unfollow(userId)
+            .then(response => {
+                if (response.data.resultCode === 0) {
+                    dispatch(unfollowUpSuccess(userId));
+                }
+                dispatch(disableButton(false, userId));
+            });
+    }
+
 }
 export default usersReducer;
 
