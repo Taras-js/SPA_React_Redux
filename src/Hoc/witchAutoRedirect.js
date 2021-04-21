@@ -1,21 +1,17 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router';
-import {connect} from 'react-redux';
+import React, {Component} from "react";
+import {Redirect} from "react-router";
 
-let mapStateToPropsForRedirect = (state) => ({
-    isAuth: state.auth.isAuth
-});
 
-export const witchAutoRedirect = (Component) => {
-    class AutoRedirectComponent extends React.Component {
+
+ export const witchAutoRedirect = (Component) => {
+    class autoRedirect extends React.Component {
 
         render() {
-            if (!this.props.isAuth) return <Redirect to='/login'/>;
+            if (!!this.props.isAuth) return <Redirect to='/login'/>;
             return <Component {...this.props} />
         }
     }
-
-    let ConnectedAutoRedirectComponent = connect(mapStateToPropsForRedirect)(AutoRedirectComponent)
-    return ConnectedAutoRedirectComponent;
+        return autoRedirect
 }
 
+// Higher-order component, для редиректа.

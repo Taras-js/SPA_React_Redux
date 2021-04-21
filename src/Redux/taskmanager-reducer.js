@@ -7,9 +7,9 @@ let initialState = {
     ],
     newTextName: 'Create your name',
     newTextEmail: 'Create  your email'
-};
 
-const taskManagerReducer = (state = initialState, action) => {
+};
+let taskManagerReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM_DATA:
             return {

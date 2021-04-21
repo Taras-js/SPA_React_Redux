@@ -9,21 +9,12 @@ const templates = axios.create({
 export const usersAPI = {
     follow(userId) { return templates.post(`follow/${userId}`) },
     unfollow(userId) { return templates.delete(`follow/${userId}`) },
-    getUsers(currentPage = 1, pageSize=15) { return templates.get(`users?page=${currentPage}&count=${pageSize}`)
-        .then(response => {
-            return response.data;
-        });
-    },
-    getProfile(userId) {
-        console.warn('Obsolete method. Please profileApi object.')
-        return profileAPI.setPersonData(userId);
-    }
+    getUsers(currentPage, pageSize=100) { return templates.get(`users?page=${currentPage}&count=${pageSize}`) },
+    setUserPage(pageNumber, pageSize) { return templates.get(`users?page=${pageNumber}&count=${pageSize}`) }
 };
 export const authAPI = {
     authMe() { return templates.get(`auth/me`) },
-    authLoginPost(email, password, rememberMe = false) {
-        return templates.post(`auth/login`, {email, password, rememberMe})
-    },
+    authLoginPost() { return templates.post(`auth/login`) },
     authLoginDelete() { return templates.delete(`auth/login`) },
     authSecurityGetCaptcha () { return templates.get (`security/get-captcha-url`) }
 };

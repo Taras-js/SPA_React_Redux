@@ -1,18 +1,18 @@
 import React, {} from 'react';
 import {Field, reduxForm} from "redux-form";
-import {reqField} from "../../../utils/validators";
+import {maxLengthCreator, maxLength30, reqField} from "../../../utils/validators";
 import s from './Login.module.css'
 import {Redirect} from "react-router";
 import {connect} from "react-redux";
-import {Input} from "../../commons/FotmsControl/FormsControl";
-import {login} from "../../../Redux/auth-reducer";
 
+
+// let maxLength3 = maxLengthCreator(30);
 
 const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
-                <Field validate={[reqField]}
+                <Field validate={[reqField, maxLength30]}
                        placeholder={'Email'}
                        name={'email'}
                        component={Input}/>
@@ -23,15 +23,15 @@ const LoginForm = (props) => {
                     name={'password'}
                     type={'password'}
                     component={Input}
-                    validate={[reqField]}/>
+                    validate={[reqField, maxLength30]}/>
             </div>
             <div>
                 <Field type={'checkbox'}
                        name={'rememberMy'}
                        component={Input}
-                />remember me
+                       />remember me
             </div>
-            {props.error && <div className={s.formSummaryError}>{props.error}</div>}
+            {props.error && <div className={s.formSummaryError}>{props.error}</div> }
             <div>
                 <button>Login</button>
             </div>
@@ -45,7 +45,7 @@ const Login = (props) => {
         props.login(formData.email, formData.password, formData.rememberMe);
     }
     if (props.isAuth) {
-        return <Redirect to={'/profile'}/>
+        return <Redirect to={'/profile'} />
     }
     return (
         <div>
