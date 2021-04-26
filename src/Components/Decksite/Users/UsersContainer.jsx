@@ -5,8 +5,7 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import PreLoader from "../../PreLoader/Preloader";
 import {
-    setUsersPageData,
-    unfollowUpsuccess, followUpsuccess, disableButton,
+    unfollow, follow, disableButton,
     getUsersData
 } from "../../../Redux/users-reducer";
 
@@ -16,7 +15,7 @@ class UsersContainer extends React.Component {
        this.props.getUsersData(this.props.currentPage, this.props.pageSize)
     }
     onPageChanged = (pageNumber) => {
-        this.props.setUsersPageData(pageNumber, this.props.pageSize)
+        this.props.getUsersData(pageNumber, this.props.pageSize)
             }
     render() {
         return (
@@ -28,8 +27,8 @@ class UsersContainer extends React.Component {
                        onPageChanged={this.onPageChanged}
                        users={this.props.users}
                        isFetching={this.props.isFetching}
-                       followUpsuccess={this.props.followUpsuccess}
-                       unfollowUpsuccess={this.props.unfollowUpsuccess}
+                       follow={this.props.follow}
+                       unfollow={this.props.unfollow}
                        disableButton={this.props.disableButton}
                        isDisabledButton={this.props.isDisabledButton}
                 />
@@ -50,5 +49,5 @@ let mapStateToProps = (state) => {
     }
 }
 export default compose(connect(mapStateToProps, {
-    unfollowUpsuccess, followUpsuccess, setUsersPageData,getUsersData, disableButton}
+    unfollow, follow, getUsersData, disableButton}
 ), withRouter)(UsersContainer)

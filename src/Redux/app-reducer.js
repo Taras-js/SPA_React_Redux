@@ -1,5 +1,5 @@
 
-import {getAuthPersonalData} from './auth-reducer';
+import {getAuthPersonalData} from '../Redux/auth-reducer';
 
 const INITIALIZED_APP = 'INITIALIZED-APP';
 

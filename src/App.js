@@ -1,22 +1,34 @@
 import React, {} from 'react';
 import s from './App.module.css';
-import Toolbar from "./Components/Toolbar/Toolbar";
-import DeckSite from "./Components/Decksite/Decksite";
-import HeaderContainer from "./Components/Header/HeaderContainer";
-import {Provider} from "react-redux";
-import store from "./Redux/store-redax"
-import {BrowserRouter} from "react-router-dom";
+import Toolbar from './Components/Toolbar/Toolbar';
+import DeckSite from './Components/Decksite/Decksite';
+import HeaderContainer from './Components/Header/HeaderContainer';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
+import { withRouter} from 'react-router-dom';
+import {initializedAllApp} from './Redux/app-reducer';
+import PreLoader from "./Components/PreLoader/Preloader";
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <Provider store={store}>
-                <div className={s.wrapper}>
-                    <HeaderContainer/>
-                    <Toolbar/>
-                    <DeckSite/>
-                </div>
-            </Provider>
-        </BrowserRouter>);
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializedAllApp();
+    }
+
+    render() {
+        if (!this.props.initialized) {
+            return <PreLoader/>
+        }
+        return (
+
+                    <div className={s.wrapper}>
+                        <HeaderContainer/>
+                        <Toolbar/>
+                        <DeckSite/>
+                    </div>
+                );
+    }
 }
-export default App;
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
+});
+export default compose (withRouter, connect(mapStateToProps, {initializedAllApp}))(App);
