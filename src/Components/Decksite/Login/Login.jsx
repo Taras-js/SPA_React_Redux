@@ -45,7 +45,7 @@ const Login = (props) => {
         props.login(formData.email, formData.password, formData.rememberMe);
     }
     if (props.isAuth) {
-        return <Redirect to={'/profile'}/>
+        return <Redirect to={`/profile/${props.userId}`}/>
     }
     return (
         <div>
@@ -56,5 +56,5 @@ const Login = (props) => {
     );
 }
 
-const mapStateToProps = (state) => ({isAuth: state.auth.isAuth})
+const mapStateToProps = (state) => ({isAuth: state.auth.isAuth, userId: state.auth.userId})
 export default connect(mapStateToProps, {login})(Login);

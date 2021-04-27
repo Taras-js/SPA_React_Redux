@@ -11,18 +11,19 @@ import ProfileContainer from "./Profile/ProfileContainer";
 import UsersContainer from "./Users/UsersContainer";
 import TaskManagerContainer from "./TaskManager/taskManagerContainer";
 
-const Decksite  = (props) => {
+const Decksite = (props) => {
     return (
         <div className={s.decksite}>
-            <Route className={s.item} path='/profile/:userId' render={() => <ProfileContainer/>}/>
-            <Route className={s.item} path='/message' render={() => <Messages />}/>
-            <Route className={s.item} path='/contacts' render={() => <Contacts />}/>
-            <Route className={s.item} path='/users' render={() => <UsersContainer />}/>
-            <Route className={s.item} path='/friends' render={() => <Friends />}/>
-            <Route className={s.item} path='/calculator' render={() => <Calculator />}/>
-            <Route className={s.item} path='/photos' render={() => <Photos />}/>
-            <Route className={s.item} path='/taskManager' render={() => <TaskManagerContainer />}/>
-            <Route className={s.item} path='/login' render={() => <Login />}/>
+            <Route className={s.item} path='profile/:userId'
+                   render={() => <ProfileContainer/>}/>
+            <Route className={s.item} path='/message' render={() => <Messages/>}/>
+            <Route className={s.item} path='/contacts' render={() => <Contacts/>}/>
+            <Route className={s.item} path='/users' render={() => <UsersContainer/>}/>
+            <Route className={s.item} path='/friends' render={() => <Friends/>}/>
+            <Route className={s.item} path='/calculator' render={() => <Calculator/>}/>
+            <Route className={s.item} path='/photos' render={() => <Photos/>}/>
+            <Route className={s.item} path='/taskManager' render={() => <TaskManagerContainer/>}/>
+            <Route className={s.item} path='/login' render={() => <Login/>}/>
         </div>
     );
 }

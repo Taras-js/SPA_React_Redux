@@ -22,13 +22,15 @@ class App extends React.Component {
 
                     <div className={s.wrapper}>
                         <HeaderContainer/>
-                        <Toolbar/>
-                        <DeckSite/>
+                        <Toolbar />
+                        <DeckSite />
                     </div>
                 );
     }
 }
 const mapStateToProps = (state) => ({
-    initialized: state.app.initialized
+    initialized: state.app.initialized,
+
+
 });
 export default compose (withRouter, connect(mapStateToProps, {initializedAllApp}))(App);

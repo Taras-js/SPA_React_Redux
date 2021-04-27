@@ -1,9 +1,8 @@
 
 .taskManager {
-    background-color: #4785ff;
-    /*border-radius: 30px;*/
+    background-image: url("evening.webp");
+    border-radius: 30px;
     margin: 0 auto;
-
 }
 .currentTask {
 
@@ -18,7 +17,7 @@
     padding-right: 0;
 }
 .addTask {
-    background-color: #FAC24C;
+    background-image: url("evening.webp");
     margin-left: 0;
     padding-left: 0;
 }

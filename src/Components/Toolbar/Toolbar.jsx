@@ -7,7 +7,7 @@ const Toolbar = (props) => {
     return (
         <div className={s.toolsbox}>
             <nav className={s.nav}>
-                <div><NavLink className={s.item} to="/profile"> Profile </NavLink></div>
+                <div><NavLink className={s.item} to='/profile'> Profile </NavLink></div>
                 <div><NavLink className={s.item} to="/message"> Messages </NavLink></div>
                 <div><NavLink className={s.item} to="/contacts"> Contacts </NavLink></div>
                 <div><NavLink className={s.item} to="/users"> Users </NavLink></div>
