@@ -6,20 +6,20 @@ import thirdSlide from './Img/3.jpg';
 
 
 
-const Slider = () => {
+const SliderAutoPlay = () => {
     const images = [
         <img key={firstSlide} src={firstSlide} alt={'firstSlide'}/>,
-        <img key={secondSlide} src={secondSlide} alt={'secondSlidee'}/>,
+        <img key={secondSlide} src={secondSlide} alt={'secondSlide'}/>,
         <img key={thirdSlide} src={thirdSlide} alt={'thirdSlide'}/>
     ];
     const [activeIndex, setActiveIndex] = useState(0);
     useEffect(() => {
-        const interval = setInterval(() => {
+        setInterval(() => {
             setActiveIndex( (current) =>
                 current === images.length - 1 ? 0 : current + 1
             )}, 3000)
         return () => clearInterval()
-    }, []);
+    }, [images.length]);
     const prevImageIndex = activeIndex ? activeIndex - 1 : images.length - 1;
     const nextImageIndex = activeIndex === images.length - 1 ? 0 : activeIndex + 1;
     return (
@@ -39,4 +39,4 @@ const Slider = () => {
         </div>
     )
 }
-export default Slider;
+export default SliderAutoPlay;
