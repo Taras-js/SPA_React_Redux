@@ -22,7 +22,7 @@ class App extends React.Component {
 
                     <div className={s.wrapper}>
                         <HeaderContainer/>
-                        <Toolbar />
+                        <Toolbar userId={this.props.userId}/>
                         <DeckSite />
                     </div>
                 );
@@ -30,7 +30,7 @@ class App extends React.Component {
 }
 const mapStateToProps = (state) => ({
     initialized: state.app.initialized,
-
+    userId: state.auth.userId
 
 });
 export default compose (withRouter, connect(mapStateToProps, {initializedAllApp}))(App);

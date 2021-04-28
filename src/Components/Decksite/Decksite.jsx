@@ -14,8 +14,7 @@ import TaskManagerContainer from "./TaskManager/taskManagerContainer";
 const Decksite = (props) => {
     return (
         <div className={s.decksite}>
-            <Route className={s.item} path='profile/:userId'
-                   render={() => <ProfileContainer/>}/>
+            <Route className={s.item} path='/profile/:userId' render={() => <ProfileContainer/>}/>
             <Route className={s.item} path='/message' render={() => <Messages/>}/>
             <Route className={s.item} path='/contacts' render={() => <Contacts/>}/>
             <Route className={s.item} path='/users' render={() => <UsersContainer/>}/>
